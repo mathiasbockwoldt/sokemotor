@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Søkemotor eksempel</title>
+<style type="text/css">
+    div {max-width: 15cm; padding: 1em; float: left; overflow: auto;}
+    b {color: red;}
+</style>
+</head>
+<body>
+<div>
+    <p>
+        Denne siden er et eksempel for en søkemotor for å finne ord når du bare har en tilfeldig del av bokstavene.
+        Siden bruker tettsteder i Norge som eksempel, men idéen er å bruke dødsårsak eller yrke i norske kirkebøker.
+
+        Søkemotoren bruker "fuzzy search", så hvis du taster inn "<b>rms</b>" finner søkemotoren bl.a.
+        <ul>
+            <li>T<b>r</b>o<b>ms</b>ø</li>
+            <li><b>R</b>o<b>m</b>edal <b>S</b>entrum</li>
+            <li><b>R</b>a<b>ms</b>øy</li>
+        </ul>
+        Dermed kan du taste inn akkurat de bokstavene som du kan lese i kirkebøker og ignorere alle andre.
+        Husk at mellomrom teller som bokstav i dette sammenheng.
+        Dermed finner "<b>rm s</b>" <i>ikke</i> Tromsø, fordi det er ingen mellomrom i navnet Tromsø, men du finner fortsatt <b>R</b>o<b>m</b>edal<b>█S</b>entrum.
+        Særnorske bokstaver er ikke noe problem.
+    </p>
+    <p>
+        Databasen består av nesten 1000 tettsteder (fra Wikipedia) for å vise at søkemotoren klarer en relativ stor database.
+        I dette eksempel er tettstedene sortert etter antall innbyggere, men man kunne også sortere alfabetisk eller etter f.eks. hvor ofte en dødsårsak eller stilling forekommer i databasen.
+        Søkemotoren finner alle tettsteder som passer bokstavene, men siden viser bare de største 20 tettsteder for å være litt mer oversiktlig.
+        Søkemotoren antar at store/små bokstaver er det samme, men det kan i prinsippet endres.
+    </p>
+</div>
+
+<div>
+    <form>
+        <input type="text" id="needle">
+        <output id="output"><p>Vent litt, laster database med tettsteder ...</p></output>
+    </form>
+</div>
+
+<script src="search.js"></script>
+</body>
+</html>
